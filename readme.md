@@ -1,3 +1,11 @@
+#INSTRUCTIONS
+
+
+1) Run 'gulp build' to compile and build files
+2) Run 'gulp build:serve' to run browse sync to see live build
+
+
+
 LF FRONT-END ASSESSMENT
 
 To help us understand how you think and how you code, we have an exercise we would like you to try.  This is essentially an evaluation of your HTML5, SCSS, JavaScript, and time management skills.
