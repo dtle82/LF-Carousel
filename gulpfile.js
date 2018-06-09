@@ -1,7 +1,8 @@
-var gulp = require('gulp'),
+const gulp = require('gulp'),
     babel = require('gulp-babel');
     browserSync = require('browser-sync'),
     uglify = require('gulp-uglify-es').default,
+    cleanCSS = require('gulp-clean-css'),
     sass = require('gulp-sass'),
     plumber = require('gulp-plumber'),
     concat = require('gulp-concat'),
@@ -14,8 +15,7 @@ gulp.task('scripts', function(){
     .pipe(babel({
         presets: ['env']
         }))
-    .pipe(rename({suffix:'.min'}))
-    .pipe(uglify())
+    .pipe(concat('main.min.js'))
     .pipe(gulp.dest('app/js'))
     .pipe(browserSync.reload({stream:true}));
 });
@@ -25,6 +25,7 @@ gulp.task('sass', function() {
     .pipe(plumber())
     .pipe(concat('style.css'))
     .pipe(sass())
+    //.pipe(cleanCSS())
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({stream:true}));
 });
