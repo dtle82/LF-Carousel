@@ -1,3 +1,192 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
 body {
-    background: white;
+  font: 100% $font-stack;
+  color: $primary-color;
 }
+
+.content {
+    margin: auto;
+    padding: 20px 40px;
+    width: auto;
+  }
+
+  .ls-carousel {
+    overflow: hidden;
+    position:relative;
+
+      .container {
+        width: 300%;
+      }
+      .slider {
+        width: 33.33%;
+        float:left;
+        display:none;
+        .inner {
+          text-align:center;
+        }
+      }
+      .active {
+        display:block;
+        animation-duration: .2s;
+        animation-name: slidein;
+
+        @keyframes slidein {
+          from {
+            margin-left: 100%;
+          }
+
+          to {
+            margin-left: 0%;
+          }
+        }
+      }
+
+      .img {
+        width: 50%;
+      }
+
+      h1 {
+        text-align:center;
+      }
+
+      p {
+        text-align: center;
+        padding: 15px;
+      }
+
+      .btn-prev {
+        font-size:0px;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        background:transparent;
+        cursor: pointer;
+        border: 0;
+      }
+      .btn-prev:before {
+        content: '<';
+        font-size: 50px;
+        background-color:transparent;
+        border-radius: 50px;
+      }
+      .btn-next {
+        font-size: 0px;
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        background:transparent;
+        cursor: pointer;
+        border: 0;
+      }
+
+      .btn-next:active,.btn-next:focus,.btn-prev:active,.btn-prev:focus {
+        border: 0;
+        outline: 0;
+      }
+
+      .btn-next:before {
+        content: '>';
+        font-size: 50px;
+        background-color:transparent;
+        border-radius: 50px;
+      }
+      .dots {
+        position: absolute;
+        bottom: 25%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%,-50%);
+        list-style: none;
+        text-align: center;
+
+        .btn-active > button::before {
+          color: red;
+          -webkit-text-fill-color: red;
+          background-color: red;
+        }
+
+          li {
+            display: inline-block;
+
+            button {
+              font-size: 0px;
+              background: transparent;
+              outline: transparent;
+              border: 0;
+            }
+
+            button::before {
+              content: 'O';
+              display: inline-block;
+              width: 15px;
+              height: 15px;
+              -moz-border-radius: 7.5px;
+              -webkit-border-radius: 7.5px;
+              border-radius: 7.5px;
+              font-size: 14px;
+              color: white;
+              -webkit-text-fill-color: white;
+            }
+          }
+        }
+    }
+
+  body:after {
+      //content: "less than 320px";
+      font-size: 300%;
+      font-weight: bold;
+      position: fixed;
+      bottom: 60px;
+      width: 100%;
+      text-align: center;
+      background-color: hsla(1,60%,40%,0.7);
+      color: #fff;
+  }
+  @media only screen and (min-width: 320px) {
+      body:after {
+          //content: "320 to 480px";
+          background-color: hsla(90,60%,40%,0.7);
+      }
+
+      .dots {
+        bottom: 50% !important;
+      }
+  }
+  @media only screen and (min-width: 480px) {
+      body:after {
+          //content: "480 to 768px";
+          background-color: hsla(180,60%,40%,0.7);
+      }
+
+      .dots {
+        bottom: 40% !important;
+      }
+  }
+  @media only screen and (min-width: 768px) {
+      body:after {
+          //content: "768 to 1024px";
+          background-color: hsla(270,60%,40%,0.7);
+      }
+
+      .img {
+        width: 75% !important;
+      }
+
+      .dots {
+        bottom: 25% !important;
+      }
+
+  }
+  @media only screen and (min-width: 1024px) {
+      body:after {
+          //content: "1024 and up";
+          background-color: hsla(360,60%,40%,0.7);
+      }
+
+      .img {
+        width: 40% !important;
+      }
+
+  }
